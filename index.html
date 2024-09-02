@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooking for Cooked's</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="main.js"></script>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="images/icon.png" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <h1>🍜 Cooking for Cooked's</h1>
+    <nav aria-label="Main Navigation">
+      <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul id="nav-menu" role="menubar">
+        <li role="menuitem"><a href="#home" class="nav-link">Home</a></li>
+        <li role="menuitem"><a href="#recipes" class="nav-link">Recipes</a></li>
+        <li role="menuitem"><a href="#contact" class="nav-link">Contact</a></li>
+        <li role="menuitem"><button id="toggle-dark-mode" aria-label="Toggle Dark Mode">🌚</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h2>Welcome to the Cooking for Cooked's</h2>
+      <p>Discover a variety of delicious recipes that you can try at home. From appetizers to desserts, find your next
+        favorite dish!</p>
+    </section>
+
+    <!-- featured recipe will be inserted here -->
+    <section id="featured-recipe"></section>
+
+    <!-- search bar and filters -->
+    <section id="search-filters">
+      <input type="text" id="search-bar" placeholder="Search recipes..." oninput="filterRecipes()"
+        aria-label="Search recipes">
+      <select id="category-filter" onchange="filterRecipes()" aria-label="Filter by category">
+        <option value="all">All Categories</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="dessert">Dessert</option>
+      </select>
+    </section>
+
+    <h2 id="recipes-title">Recipes</h2>
+    <section id="recipes">
+      <!-- recipe cards will be generated here -->
+    </section>
+
+    <!-- section to dynamically display the recipe details -->
+    <section id="recipe-details" class="hidden">
+      <!-- recipe details will be populated here -->
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Feel free to contact us for more recipes or feedback.</p>
+      <a class="foot-btn" href="https://discord.gg/UVWjuAh"> Join Discord!</a>
+    </section>
+  </main>
+
+  <footer>
+    <p style="
+    /* padding: 0 10px; */
+    margin: 0 10px;
+">&copy; 2024 🍜 Cooking for Cooked's. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>
