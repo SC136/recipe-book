@@ -1,6 +1,6 @@
 import { recipes } from './recipes.js';
 
-if (chrome.storage && chrome.storage.session) {
+if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.session) {
     chrome.storage.session.setAccessLevel({ accessLevel: 'TRUSTED_AND_UNTRUSTED_CONTEXTS' });
 } else {
     console.warn('chrome.storage.session is not available');
@@ -340,16 +340,20 @@ function initDarkMode() {
         const currentMode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
 
         toggleButton.textContent = currentMode === 'dark' ? '🌞' : '🌚';
-        localStorage.setItem('theme', currentMode);
-
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem('theme', currentMode);
+        }
+        
         // Update featured recipe
         updateFeaturedRecipeStyle();
     });
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme && savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        toggleButton.textContent = '🌞';
+    if (typeof localStorage !== 'undefined') {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme && savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleButton.textContent = '🌞';
+        }
     }
 
     // Initial update of featured recipe style
