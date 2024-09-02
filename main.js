@@ -142,10 +142,10 @@ function viewRecipe(recipeId) {
     printButton.onclick = printRecipe;
     recipeDetails.appendChild(printButton);
 
-    const shareButton = document.createElement('button');
-    shareButton.textContent = 'Share Recipe';
-    shareButton.onclick = shareRecipe;
-    recipeDetails.appendChild(shareButton);
+    // const shareButton = document.createElement('button');
+    // shareButton.textContent = 'Share Recipe';
+    // shareButton.onclick = shareRecipe;
+    // recipeDetails.appendChild(shareButton);
 
     addCookingTimer();
 
@@ -284,30 +284,30 @@ function startTimer() {
     }, 1000);
 }
 
-function shareRecipe() {
-    try {
-        const recipeUrl = window.location.href;
-        const shareText = `Check out this delicious recipe: ${recipeUrl}`;
+// function shareRecipe() {
+//     try {
+//         const recipeUrl = window.location.href;
+//         const shareText = `Check out this delicious recipe: ${recipeUrl}`;
 
-        if (navigator.share) {
-            navigator.share({
-                title: 'Share Recipe',
-                text: shareText,
-                url: recipeUrl,
-            })
-                .then(() => console.log('Successful share'))
-                .catch((error) => {
-                    console.error('Error sharing:', error);
-                    fallbackShare(recipeUrl);
-                });
-        } else {
-            fallbackShare(recipeUrl);
-        }
-    } catch (error) {
-        console.error('Error in shareRecipe:', error);
-        alert('Sorry, there was an error sharing the recipe. Please try again.');
-    }
-}
+//         if (navigator.share) {
+//             navigator.share({
+//                 title: 'Share Recipe',
+//                 text: shareText,
+//                 url: recipeUrl,
+//             })
+//                 .then(() => console.log('Successful share'))
+//                 .catch((error) => {
+//                     console.error('Error sharing:', error);
+//                     fallbackShare(recipeUrl);
+//                 });
+//         } else {
+//             fallbackShare(recipeUrl);
+//         }
+//     } catch (error) {
+//         console.error('Error in shareRecipe:', error);
+//         alert('Sorry, there was an error sharing the recipe. Please try again.');
+//     }
+// }
 
 function fallbackShare(recipeUrl) {
     const result = prompt('Copy this link to share the recipe:', recipeUrl);
@@ -361,7 +361,7 @@ Object.assign(window, {
     startTimer,
     toggleFavorite,
     printRecipe,
-    shareRecipe
+    // shareRecipe
 });
 
 console.log('Global assignments completed');
