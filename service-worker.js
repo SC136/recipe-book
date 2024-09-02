@@ -7,6 +7,7 @@ const urlsToCache = [
     '/recipes.js',
     '/images/recipe1.jpg',
     '/images/recipe2.jpg',
+    '/images/header.webp', // Add the header image to the cache
     // Add more resources to cache
 ];
 

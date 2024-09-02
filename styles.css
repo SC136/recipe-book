@@ -27,7 +27,7 @@ body {
 
 header {
     background-color: var(--primary-color);
-    background-image: url('images/header.png');
+    background-image: url('images/header.webp');
     animation: slideBackground 20s linear infinite;
     color: white;
     padding: 20px 0;
@@ -187,7 +187,7 @@ button:active {
 }
 
 .foot-btn {
-    background-color: #ff6347;
+    background-color: #333333; /* Adjusted for better contrast */
     color: white;
     border: none;
     padding: 12px 20px;
@@ -201,7 +201,7 @@ button:active {
 }
 
 .foot-btn:hover {
-    background-color: #e5533d;
+    background-color: #e5533d; /* Adjusted for better contrast */
     transform: scale(1.05);
 }
 
@@ -271,12 +271,17 @@ body.dark-mode #toggle-dark-mode:hover {
 }
 
 footer {
-    background-color: var(--primary-color);
+    background-color: #333333; /* Adjusted for better contrast */
     color: white;
     text-align: center;
     padding: 10px 0;
     position: relative;
     width: 100%;
+}
+
+footer p {
+    color: #ffffff; /* Adjusted for better contrast */
+    margin: 0 10px;
 }
 
 .hidden {

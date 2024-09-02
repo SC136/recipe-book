@@ -1,6 +1,10 @@
 import { recipes } from './recipes.js';
 
-chrome.storage.session.setAccessLevel({ accessLevel: 'TRUSTED_AND_UNTRUSTED_CONTEXTS' });
+if (chrome.storage && chrome.storage.session) {
+    chrome.storage.session.setAccessLevel({ accessLevel: 'TRUSTED_AND_UNTRUSTED_CONTEXTS' });
+} else {
+    console.warn('chrome.storage.session is not available');
+}
 
 console.log('main.js loaded');
 
