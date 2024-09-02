@@ -184,6 +184,11 @@ function filterRecipes() {
 }
 
 function toggleFavorite(recipeId) {
+    if (typeof localStorage === 'undefined') {
+        console.warn('localStorage is not available');
+        return;
+    }
+
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const index = favorites.indexOf(recipeId);
 
@@ -198,6 +203,11 @@ function toggleFavorite(recipeId) {
 }
 
 function updateFavoriteButton(recipeId) {
+    if (typeof localStorage === 'undefined') {
+        console.warn('localStorage is not available');
+        return;
+    }
+
     const favoriteButton = document.getElementById('favorite-button');
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
