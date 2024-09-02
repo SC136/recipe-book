@@ -42,3 +42,47 @@ To run this project locally, follow these steps:
 ### HTML Structure
 
 The main HTML structure is defined in `index.html`:
+html:index.html
+startLine: 1
+endLine: 94
+
+
+### CSS Styles
+
+The styles for the website are defined in `styles.css`:
+css:styles.css
+startLine: 45
+endLine: 507
+
+
+### JavaScript Functionality
+
+The main JavaScript functionality is defined in `main.js`:
+javascript:main.js
+startLine: 1
+endLine: 357
+
+
+### Service Worker
+
+The service worker is used to cache resources for offline use. It is defined in `service-worker.js`:
+javascript:service-worker.js
+startLine: 1
+endLine: 54
+
+
+### Manifest
+
+The web app manifest provides metadata for the web application. It is defined in `manifest.json`:
+json:manifest.json
+startLine: 1
+endLine: 21
+
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

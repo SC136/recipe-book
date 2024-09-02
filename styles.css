@@ -70,7 +70,7 @@ main {
 }
 
 .nav-link {
-    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(25px) saturate(100%); /* Safari 9+ */
     backdrop-filter: blur(25px) saturate(100%);
 }
 
@@ -234,7 +234,7 @@ body.dark-mode .button {
 }
 
 body.dark-mode button:hover,
-body.dark-mode .button:hover {
+body.dark.mode .button:hover {
     background-color: #e5533d;
 }
 
@@ -328,44 +328,44 @@ body.dark-mode {
 }
 
 body.dark-mode header,
-body.dark-mode footer {
+body.dark.mode footer {
     background-color: var(--dark-primary-color);
 }
 
-body.dark-mode .recipe-card,
-body.dark-mode .featured-recipe-card {
+body.dark.mode .recipe-card,
+body.dark.mode .featured-recipe-card {
     background-color: var(--dark-secondary-color);
     color: var(--dark-text-color);
 }
 
-body.dark-mode .recipe-card h3,
-body.dark-mode .featured-recipe-card h3 {
+body.dark.mode .recipe-card h3,
+body.dark.mode .featured-recipe-card h3 {
     color: var(--dark-accent-color);
 }
 
-body.dark-mode .recipe-card button,
-body.dark-mode #recipe-details button,
+body.dark.mode .recipe-card button,
+body.dark.mode #recipe-details button,
 body.dark.mode .featured-recipe-card button {
     background-color: #ff6347;
     color: white;
 }
 
-body.dark-mode .recipe-card button:hover,
-body.dark-mode #recipe-details button:hover,
-body.dark-mode .featured-recipe-card button:hover {
+body.dark.mode .recipe-card button:hover,
+body.dark.mode #recipe-details button:hover,
+body.dark.mode .featured-recipe-card button:hover {
     background-color: #e5533d;
 }
 
-body.dark-mode #cooking-timer {
+body.dark.mode #cooking-timer {
     background-color: #2a2a2a;
     color: #f0f0f0;
 }
 
-body.dark-mode ::-webkit-scrollbar {
+body.dark.mode ::-webkit-scrollbar {
     background-color: var(--dark-background-color);
 }
 
-body.dark-mode ::-webkit-scrollbar-thumb {
+body.dark.mode ::-webkit-scrollbar-thumb {
     background-color: var(--dark-primary-color);
 }
 
@@ -477,7 +477,7 @@ body.dark-mode ::-webkit-scrollbar-thumb {
 }
 
 /* Dark mode adjustments */
-body.dark-mode .featured-recipe-card {
+body.dark.mode .featured-recipe-card {
     background-color: #3a3a3a;
 }
 
@@ -579,11 +579,11 @@ h3 {
 }
 
 /* Scrollbar styles for dark mode */
-body.dark-mode ::-webkit-scrollbar-track {
+body.dark.mode ::-webkit-scrollbar-track {
     background: var(--dark-background-color);
 }
 
-body.dark-mode ::-webkit-scrollbar-thumb {
+body.dark.mode ::-webkit-scrollbar-thumb {
     background-color: var(--dark-primary-color);
     border: 3px solid var(--dark-background-color);
 }
