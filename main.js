@@ -1,5 +1,7 @@
 import { recipes } from './recipes.js';
 
+chrome.storage.session.setAccessLevel({ accessLevel: 'TRUSTED_AND_UNTRUSTED_CONTEXTS' });
+
 console.log('main.js loaded');
 
 document.addEventListener('DOMContentLoaded', initializeApp);
