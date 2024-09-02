@@ -38,7 +38,7 @@ export const recipes = {
         nutrition: 'Calories: 250, Protein: 15g, Fat: 7g, Carbs: 40g',
         category: 'dessert'
     }
-    // Add more recipes as needed
+    // add more recipes as needed
 };
 
 console.log('Recipes loaded:', Object.keys(recipes).length);

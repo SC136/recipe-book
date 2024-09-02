@@ -10,7 +10,6 @@ Welcome to Cooking for Cooked's! This website is a comprehensive recipe book whe
 - [Service Worker](#service-worker)
 - [Manifest](#manifest)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -26,14 +25,16 @@ Welcome to Cooking for Cooked's! This website is a comprehensive recipe book whe
 To run this project locally, follow these steps:
 
 1. Clone the repository:
-    ```sh
-    git clone https://github.com/yourusername/cooking-for-cookeds.git
-    ```
+
+   ```sh
+   git clone https://github.com/SC136/recipe-book.git
+   ```
 
 2. Navigate to the project directory:
-    ```sh
-    cd cooking-for-cookeds
-    ```
+
+   ```sh
+   cd recipe-book
+   ```
 
 3. Open `index.html` in your browser to view the website.
 
@@ -41,48 +42,72 @@ To run this project locally, follow these steps:
 
 ### HTML Structure
 
-The main HTML structure is defined in `index.html`:
-html:index.html
-startLine: 1
-endLine: 94
-
+The main HTML structure is defined in the `index.html` file.
 
 ### CSS Styles
 
-The styles for the website are defined in `styles.css`:
-css:styles.css
-startLine: 45
-endLine: 507
-
+The styles for the website are defined in the `styles.css` file.
 
 ### JavaScript Functionality
 
-The main JavaScript functionality is defined in `main.js`:
-javascript:main.js
-startLine: 1
-endLine: 357
-
+The main JavaScript functionality is defined in the `main.js` file.
 
 ### Service Worker
 
-The service worker is used to cache resources for offline use. It is defined in `service-worker.js`:
-javascript:service-worker.js
-startLine: 1
-endLine: 54
-
+The service worker, defined in the `service-worker.js` file, is used to cache resources for offline use.
 
 ### Manifest
 
-The web app manifest provides metadata for the web application. It is defined in `manifest.json`:
-json:manifest.json
-startLine: 1
-endLine: 21
-
+The web app manifest, defined in the `manifest.json` file, provides metadata for the web application.
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+We welcome contributions from the community! To contribute, please follow these steps:
 
-## License
+1. Fork the repository to your own GitHub account.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with clear and descriptive messages.
+4. Push your changes to your forked repository.
+5. Open a pull request to the main repository with a detailed description of your changes.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Thank you for your contributions!
+
+### Adding Recipes to the Site
+
+To add a new recipe to the site, follow these steps:
+
+1. **Update `recipes.js`:**
+
+   - Open the `recipes.js` file.
+   - Add a new recipe object to the `recipes` array with the following properties:
+     - `title`: The name of the recipe.
+     - `image`: The path to the recipe image.
+     - `description`: A brief description of the recipe.
+     - `ingredients`: A list of ingredients required for the recipe.
+     - `instructions`: Step-by-step instructions on how to prepare the recipe.
+     - `nutrition`: Nutritional information for the recipe.
+     - `category`: The category of the recipe (e.g., breakfast, dessert).
+
+2. **Add Recipe Image:**
+   - Place the recipe image in the `images` folder.
+   - Ensure the image path in the `recipes.js` file matches the location of the image in the `images` folder.
+
+Example of adding a new recipe in `recipes.js`:
+
+```javascript
+const recipes = {
+    recipe1: {
+        title: 'Blueberry Pancakes',
+        image: 'images/recipe.jpg',
+        description: 'Fluffy pancakes loaded with fresh blueberries.',
+        ingredients: [
+            '1 cup of ingredient A',
+            '2 tbsp of ingredient B',
+            '3 pieces of ingredient C'
+        ],
+        instructions: 'Mix all ingredients together and cook for 20 minutes.',
+        nutrition: 'Calories: 200, Protein: 10g, Fat: 5g, Carbs: 30g',
+        category: 'breakfast'
+    },
+};
+```
