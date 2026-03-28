@@ -789,14 +789,15 @@ function formatInstructions(text) {
 }
 
 let activeTimers = [];
+let timerIdCounter = 0;
 
 function startTimer(amount, unit) {
   let ms = amount * 60000;
   if (unit.toLowerCase().startsWith('hr') || unit.toLowerCase().startsWith('hour')) {
     ms = amount * 3600000;
   }
-  
-  const timer = { id: Date.now(), end: Date.now() + ms, total: ms, done: false };
+
+  const timer = { id: ++timerIdCounter, end: Date.now() + ms, total: ms, done: false };
   activeTimers.push(timer);
   renderTimers();
   
