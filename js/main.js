@@ -1,13 +1,13 @@
 import { store } from './store.js';
-import { fetchCategories, fetchRandomFeed, fetchSearch, fetchByCategory, fetchByIngredients } from './api.js';
-import { setupRouter, navigateHome } from './router.js';
+import { fetchCategories, fetchRandomFeed, fetchSearch, fetchByCategory, fetchByIngredients, fetchRecipeById } from './api.js';
+import { setupRouter, navigateHome, navigateToRecipe } from './router.js';
 import { 
   setupReactivity, renderFavoritesGrid, renderCartItems,
   closeOverlay, closeCookingMode, prevCookingStep, nextCookingStep,
   startTimer, removeTimer, renderSkeletonCards, initTimers
 } from './components.js';
 import { 
-  rememberFocus, restoreFocus, syncBodyScrollLock, focusFirstElement, trapFocus, escapeHtml
+  rememberFocus, restoreFocus, syncBodyScrollLock, focusFirstElement, trapFocus, escapeHtml, triggerExplosion
 } from './utils.js';
 
 /* ── Chrome extension compat ── */
@@ -68,7 +68,7 @@ function setupGlobalDelegation() {
       store.toggleFavorite(id);
       if (store.state.favorites.includes(id)) {
         const rect = saveBtn.getBoundingClientRect();
-        import('./utils.js').then(({triggerExplosion}) => triggerExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2));
+        triggerExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
       }
       return;
     }
@@ -80,7 +80,7 @@ function setupGlobalDelegation() {
       store.toggleCart(id);
       if (store.state.cart.includes(id)) {
         const rect = cartBtn.getBoundingClientRect();
-        import('./utils.js').then(({triggerExplosion}) => triggerExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2));
+        triggerExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
       }
       return;
     }
@@ -91,12 +91,11 @@ function setupGlobalDelegation() {
       if (!store.state.recipes[id]) {
         card.style.opacity = '0.6';
         card.style.pointerEvents = 'none';
-        const api = await import('./api.js');
-        await api.fetchRecipeById(id);
+        await fetchRecipeById(id);
         card.style.opacity = '1';
         card.style.pointerEvents = 'auto';
       }
-      import('./router.js').then(({navigateToRecipe}) => navigateToRecipe(id));
+      navigateToRecipe(id);
       return;
     }
   });

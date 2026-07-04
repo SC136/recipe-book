@@ -239,7 +239,8 @@ export function generateMacrosFromIngredients(ingredients) {
 
     let matched = false;
     for (const [key, macros] of Object.entries(db)) {
-      if (text.includes(key)) {
+      const regex = new RegExp('\\b' + key + '(?:s|es)?\\b', 'i');
+      if (regex.test(text)) {
         // Adjust for specific count-based units (like eggs)
         if (macros.unit === 'count' && !weightMatch && !volMatch && hasNumber) {
           amountGrams = amountVal * macros.weight;
