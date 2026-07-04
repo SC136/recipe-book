@@ -819,6 +819,7 @@ async function exportRecipeCard(r) {
     link.click();
   } catch (err) {
     console.error('Export failed', err);
+    alert('Sorry, the recipe could not be exported as an image. This is usually due to cross-origin restrictions on the recipe image.');
   } finally {
     document.body.removeChild(card);
   }

@@ -166,21 +166,26 @@ export async function fetchRecipeById(id, signal) {
 
 export async function fetchByIngredients(ingredientsArray, signal) {
   try {
-    let intersection = null;
-    for (const ing of ingredientsArray) {
+    const fetchPromises = ingredientsArray.map(async (ing) => {
       const formattedIng = ing.toLowerCase().replace(/\s+/g, '_');
       const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${formattedIng}`, { signal });
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       const data = await res.json();
-      if (!data.meals || !Array.isArray(data.meals)) { intersection = []; break; }
-      const currentIds = data.meals.map(m => m.idMeal);
-      if (intersection === null) {
-        intersection = currentIds;
-      } else {
-        intersection = intersection.filter(id => currentIds.includes(id));
-      }
-      if (intersection.length === 0) break;
+      return data.meals && Array.isArray(data.meals) ? data.meals.map(m => m.idMeal) : [];
+    });
+
+    const results = await Promise.all(fetchPromises);
+    
+    if (results.some(ids => ids.length === 0)) {
+      store.setFeed([]);
+      return;
     }
+
+    let intersection = results[0];
+    for (let i = 1; i < results.length; i++) {
+      intersection = intersection.filter(id => results[i].includes(id));
+    }
+
     if (!intersection || intersection.length === 0) {
       store.setFeed([]);
       return;
